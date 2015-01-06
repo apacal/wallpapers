@@ -27,6 +27,7 @@ remove_picture:
 	rm -fr /usr/local/wallpapers/picture/*
 
 crontab:
-	echo "*/5 * * * * root wallpapers now" >> /etc/crontab
-	echo "* * */10 * * root wallpapers" >> /etc/crontab
+	crontab ./crontab.conf
+	
+
 
