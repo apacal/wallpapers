@@ -19,10 +19,10 @@ change wallpapers for linux gnome, that include getwallpapers ,wallpapers execut
 INSTALL
 -------
 
-**automatic installation**::
+###automatic installation
     make && make install
 
-**auto crontab**::
+###auto crontab
     make crontab
 
 
