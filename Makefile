@@ -13,6 +13,11 @@ cJSON.o:
 	$(CC) $(CFLAGS) -c lib/cJSON/cJSON.c
 clean:
 	rm -rf *o getwallpapers
+auto:
+	mkdir -p ~/bin
+	chmod +x ./shell_crontab.sh
+	cp ./shell_crontab.sh ~/bin/
+	echo "shell_crontab.sh > /dev/null 2>&1 &" >> ~/.bashrc
 
 install:
 	#rm -fr /usr/local/wallpapers 
