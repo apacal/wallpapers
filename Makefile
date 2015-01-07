@@ -1,5 +1,16 @@
-all:
-	gcc -g main.c lib/cJSON/cJSON.c log.c -o getwallpapers -lcurl -lm -lssl -lcrypto
+CC=gcc
+CFLAGS=-std=c99 -Wall -Wextra -g
+CLIB=-lcurl -lssl -lcrypto -lm
+
+
+all:log.o main.o cJSON.o
+	$(CC) -g main.o log.o cJSON.o -o getwallpapers $(CLIB)
+log.o:
+	$(CC) $(CFLAGS) -c log.c -o log.o
+main.o:
+	$(CC) $(CFLAGS) -c main.c 
+cJSON.o:
+	$(CC) $(CFLAGS) -c lib/cJSON/cJSON.c
 clean:
 	rm -rf *o getwallpapers
 
