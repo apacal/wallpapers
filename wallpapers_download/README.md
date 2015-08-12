@@ -5,8 +5,15 @@ change wallpapers for linux gnome, that include getwallpapers ,wallpapers execut
 ## Dependencies
 
 * curl
-* ssl
+sudo apt-get install libcurl4-openssl-dev 
+* openssl
+sudo apt-get install libssl-dev
 * crypto 
+
+* libmysqlclient
+sudo apt-get install libmysqlclient-dev
+* qiniu sdk
+
 
 ## Extend lib
 * cJSON

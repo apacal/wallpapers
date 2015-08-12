@@ -2,12 +2,19 @@ wallpapers_cgi
 ==========
 wallpapers_cgi 是一个用c编写的fastcgi，提供一个存在mysql中的随机图片，充当网页背景，例子可以看apacal.cn中的用户登陆和注册背景。在css中使用wallpapers.apacal.cn就可以随机使用背景图片。
 
-
 ## Dependencies
 
 * curl
-* fastcgi sudo apt-get install libfcgi-dev
-* libmysqlclient sudo apt-get install libmysqlclient-dev
+sudo apt-get install libcurl4-openssl-dev 
+* openssl
+sudo apt-get install libssl-dev
+* crypto 
+* libmysqlclient
+sudo apt-get install libmysqlclient-dev
+* libfcgi
+sudo apt-get install libfcgi-dev
+* qiniu sdk
+
 
 ## Dependecies Server
 
@@ -24,6 +31,15 @@ wallpapers_cgi 是一个用c编写的fastcgi，提供一个存在mysql中的随�
 INSTALL
 -------
 
+### modify database name, user, password
+    modify sql.c file to change you database password, create table sql is doc/wallpapers.sql
+
+    char mysql_host[] = "localhost";
+    char mysql_user[] = "root";
+    char mysql_passwd[] = "dev2014";
+    char mysql_database[] = "wallpapers";
+    int mysql_conn_port = 3306;
+
 ###automatic installation
     make && make install
 
@@ -36,7 +52,6 @@ INSTALL
         location / {
             fastcgi_pass   127.0.0.1:8000;
             fastcgi_index index.cgi;
-            fastcgi_param SCRIPT_FILENAME fcgi$fastcgi_script_name;
             include fastcgi_params;
         }
     }
@@ -74,3 +89,7 @@ INSTALL
 
 ###run spawn-fcgi
     spawn-fcgi -a 127.0.0.1 -p 8000 -f /data/wallpapers/cgi/wallpapers_cgi
+
+    # run server when system start
+    sudo echo "spawn-fcgi -a 127.0.0.1 -p 8000 -f /data/wallpapers/cgi/wallpapers_cgi" >> /etc/rc.local
+
