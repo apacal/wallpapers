@@ -1,7 +1,7 @@
 #wallpapers_download
 change wallpapers for linux gnome, that include getwallpapers ,wallpapers execute file, getwallpapers is that download image to /usr/local/wallpapers/picture, wallpapers is a shell script that change wallpaper in gnome.
 
-#Dependencies
+###Dependencies
 
 * curl
 
@@ -17,18 +17,18 @@ change wallpapers for linux gnome, that include getwallpapers ,wallpapers execut
 * qiniu sdk
 
 
-# Extend lib
+### Extend lib
 * cJSON
 
-#Environment
+###Environment
 Linux / Mas Os / Unix
 
 
-#INSTALL
+###INSTALL
 
 ```make && make install```
 
-#auto crontab
+###auto crontab
 ```make crontab```
 
 
